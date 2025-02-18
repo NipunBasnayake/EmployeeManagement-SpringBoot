@@ -15,4 +15,6 @@ public interface EmployeeService {
     void updateEmployee(Employee employee);
 
     List<Employee> searchByName(String name);
+
+    Employee searchById(Integer id);
 }

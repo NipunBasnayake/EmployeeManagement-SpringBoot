@@ -35,6 +35,11 @@ public class EmployeeController {
         employeeService.updateEmployee(employee);
     }
 
+    @GetMapping("/search-by-id/{id}")
+    public Employee getEmployeeById(@PathVariable Integer id) {
+        return employeeService.searchById(id);
+    }
+
     @GetMapping("/search-by-name/{name}")
     public List<Employee> searchEmployee(@PathVariable String name) {
         return employeeService.searchByName(name);

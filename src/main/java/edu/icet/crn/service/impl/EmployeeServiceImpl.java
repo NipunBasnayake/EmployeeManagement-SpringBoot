@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -50,6 +51,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         List<Employee> employeeList = new ArrayList<>();
         employeeEntityList.forEach(employeeEntity -> employeeList.add(modelMapper.map(employeeEntity, Employee.class)));
         return employeeList;
+    }
+
+    @Override
+    public Employee searchById(Integer id) {
+        return new ModelMapper().map(employeeRepository.findById(id).get(), Employee.class);
     }
 
 }
