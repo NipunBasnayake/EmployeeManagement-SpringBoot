@@ -48,9 +48,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public List<Employee> searchByName(String name) {
         List<EmployeeEntity> employeeEntityList = employeeRepository.findByName(name);
         List<Employee> employeeList = new ArrayList<>();
-        employeeEntityList.forEach(employeeEntity -> {
-            employeeList.add(modelMapper.map(employeeEntity, Employee.class));
-        });
+        employeeEntityList.forEach(employeeEntity -> employeeList.add(modelMapper.map(employeeEntity, Employee.class)));
         return employeeList;
     }
 
