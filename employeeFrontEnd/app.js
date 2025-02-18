@@ -26,7 +26,7 @@ function populateTable() {
                         <td>${employee.email}</td>
                         <td>${employee.mobileNumber}</td>
                         <td>
-                            <button class="btn btn-warning btn-sm" onclick="updateEmployee(${employee.id})">Update</button>
+                            <button class="btn btn-warning btn-sm me-2" onclick="updateEmployee(${employee.id})">Update</button>
                             <button class="btn btn-danger btn-sm" onclick="deleteEmployee(${employee.id})">Delete</button>
                         </td>
                     </tr>
@@ -119,9 +119,6 @@ async function addEmployee() {
     });
 
     if (formValues) {
-        console.log("New Employee Data:", formValues);
-        Swal.fire("Success!", "Employee added successfully!", "success");
-        
         await fetch("http://localhost:8080/employee/add", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -130,5 +127,8 @@ async function addEmployee() {
         .then(response => response.json())
         .then(data => console.log("Employee added:", data))
         .catch(error => console.error("Error adding employee:", error));
+
+        Swal.fire("Success!", "Employee added successfully!", "success");
+        populateTable();
     }
 }
