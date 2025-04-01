@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+  
+  .page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .content-container {
+    padding-top: 90px;
+    padding-bottom: 65px;
+    flex: 1;
+  }
+  
+  @media (max-width: 768px) {
+    .content-container {
+      padding-top: 80px;
+      padding-bottom: 60px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .content-container {
+      padding-top: 75px;
+      padding-bottom: 55px;
+    }
+  }
